@@ -18,85 +18,91 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <main>
-      <h1 class="heading heading--primary">Boas vindas!</h1>
-      <form class="form__container container" id="form--login">
-        <h2 class="heading heading--secondary">Faça seu login:</h2>
-        <section class="input__container">
-          <div class="input">
-            <label for="email" class="input__title">E-mail:</label>
-            <input
-              id="email"
-              class="input__field"
-              type="email"
-              placeholder="seuemail@email.com"
-              required
-            />
-          </div>
-          <div class="input">
-            <label for="password" class="input__title">E-mail:</label>
-            <input
-              id="password"
-              class="input__field"
-              type="password"
-              placeholder="sua senha"
-              required
-            />
-          </div>
-        </section>
-        <section class="btn__container">
-          <button class="btn btn--submit" type="submit">Entrar</button>
-          <a href="#" class="link">Criar um cadastro</a>
-        </section>
-      </form>
-      <form class="form__container container hidden" id="form--register">
-        <h2 class="heading heading--secondary">Novo cadastro</h2>
-        <section class="input__container">
-          <div class="input">
-            <label for="name" class="input__title">Seu nome:</label>
-            <input
-              id="name"
-              class="input__field"
-              type="text"
-              placeholder="digite seu nome"
-              required
-            />
-          </div>
-          <div class="input">
-            <label for="doc" class="input__title">N° do Documento:</label>
-            <input
-              id="doc"
-              class="input__field"
-              type="number"
-              placeholder="111.222.333-00"
-            />
-          </div>
-          <div class="input">
-            <label for="email" class="input__title">E-mail:</label>
-            <input
-              id="email"
-              class="input__field"
-              type="email"
-              placeholder="seuemail@email.com"
-              required
-            />
-          </div>
-          <div class="input">
-            <label for="password" class="input__title">E-mail:</label>
-            <input
-              id="password"
-              class="input__field"
-              type="password"
-              placeholder="sua senha"
-              required
-            />
-          </div>
-        </section>
-        <section class="btn__container">
-          <button class="btn btn--submit" type="submit">Criar cadastro</button>
-          <a href="#" class="link">Já tenho cadastro</a>
-        </section>
-      </form>
+    <main class="container">
+      <div class="form__wrapper">
+        <h1 class="heading heading--primary">Boas vindas!</h1>
+        <form class="form__container container" id="form--login">
+          <h2 class="heading heading--secondary heading--form">
+            Faça seu login:
+          </h2>
+          <section class="input__container">
+            <div class="input">
+              <label for="email" class="input__title">E-mail:</label>
+              <input
+                id="email"
+                class="input__field"
+                type="email"
+                placeholder="seuemail@email.com"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="password" class="input__title">E-mail:</label>
+              <input
+                id="password"
+                class="input__field"
+                type="password"
+                placeholder="sua senha"
+                required
+              />
+            </div>
+          </section>
+          <section class="btn__container">
+            <button class="btn btn--submit" type="submit">Entrar</button>
+            <a href="#" class="link">Criar um cadastro</a>
+          </section>
+        </form>
+        <form class="form__container container hidden" id="form--register">
+          <h2 class="heading heading--secondary">Novo cadastro</h2>
+          <section class="input__container">
+            <div class="input">
+              <label for="name" class="input__title">Seu nome:</label>
+              <input
+                id="name"
+                class="input__field"
+                type="text"
+                placeholder="digite seu nome"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="doc" class="input__title">N° do Documento:</label>
+              <input
+                id="doc"
+                class="input__field"
+                type="number"
+                placeholder="111.222.333-00"
+              />
+            </div>
+            <div class="input">
+              <label for="email" class="input__title">E-mail:</label>
+              <input
+                id="email"
+                class="input__field"
+                type="email"
+                placeholder="seuemail@email.com"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="password" class="input__title">E-mail:</label>
+              <input
+                id="password"
+                class="input__field"
+                type="password"
+                placeholder="sua senha"
+                required
+              />
+            </div>
+          </section>
+          <section class="btn__container">
+            <button class="btn btn--submit" type="submit">
+              Criar cadastro
+            </button>
+            <a href="#" class="link">Já tenho cadastro</a>
+          </section>
+        </form>
+      </div>
     </main>
   </body>
 </html>
