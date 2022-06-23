@@ -25,7 +25,7 @@ SYSTEMS
 
 /* GENERAL STYLES */
 :root {
-  --bg: #d9d9d9;
+  --bg: #f3f3f3;
   --base: #4d5d73;
   --main: #008aff;
   --mainHov: #0071e4;
@@ -38,13 +38,10 @@ SYSTEMS
   --menu-border: #4bdefb;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
+  height: 100vh;
 }
 /* ------------- */
 .nav {
@@ -56,7 +53,7 @@ body {
   grid-row: 1 / -1;
   height: 100vh;
   background-color: var(--base);
-  width: 24rem;
+  width: 100%;
   position: relative;
 }
 
@@ -135,12 +132,17 @@ body {
 }
 
 .main--application {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 100%;
+  overflow: scroll;
 }
 
 .header--application {
   grid-column: 2;
+  width: 100%;
   height: 6.4rem;
   display: flex;
 }
@@ -155,4 +157,151 @@ body {
   margin-left: auto;
   background-color: var(--green);
   height: 4.4rem;
+}
+
+.btn--delete {
+  background-color: var(--red);
+}
+
+.btn--edit {
+  background-color: var(--yelloworange);
+}
+
+.mainapp {
+  padding: 2.4rem;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.mainapp__tools {
+  display: flex;
+  align-items: center;
+}
+
+.calendar__tools__container {
+  gap: 0.8rem;
+}
+
+.date__selector {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.date__selector span {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.switcher__container {
+  display: flex;
+  background-color: #bdcbe2;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.btn--switch {
+  background: transparent;
+}
+
+.btn--switch.active {
+  background-color: var(--main);
+}
+
+.view__container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2.4rem;
+}
+
+.view--calendar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.weekdays__wrapper {
+  width: 100%;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.weekday {
+  width: 100%;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.days__wrapper {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  /* padding: 0.2rem; */
+}
+
+.days__wrapper div {
+  border: solid 1px var(--bg);
+  height: 100%;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.prev__date {
+}
+
+.current__date {
+}
+
+.next__date {
+}
+
+.view--list {
+}
+
+.event__info__container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.event__info__container .btn__container--horizontal {
+  margin-left: auto;
+}
+
+.heading--event__info {
+  font-size: 1.8rem;
+  text-align: left;
+}
+
+.info__title {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.info {
+  font-weight: 300;
 }

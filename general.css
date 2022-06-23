@@ -29,6 +29,7 @@ SYSTEMS
   padding: 0;
   box-sizing: border-box;
   cursor: default;
+  font-family: "Quicksand", sans-serif;
 }
 
 html {
@@ -50,7 +51,7 @@ html {
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  /* font-family: "Quicksand", sans-serif; */
   line-height: 1;
   font-weight: 400;
   color: var(--text-primary);
@@ -135,13 +136,19 @@ body {
 
 .input__field::placeholder {
   font-size: 1.8rem;
-  font-family: "Quicksand", sans-serif;
+  /* font-family: "Quicksand", sans-serif; */
   color: var(--text-placeholder);
 }
 
-.btn__container {
+.btn__container--vertical {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btn__container--horizontal {
+  display: flex;
   align-items: center;
   gap: 1.2rem;
 }
@@ -155,7 +162,7 @@ body {
   background-color: var(--main);
   color: #fff;
   font-size: 1.8rem;
-  font-family: "Quicksand", sans-serif;
+  /* font-family: "Quicksand", sans-serif; */
   font-weight: 600;
   transition: all 0.3s;
 }

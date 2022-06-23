@@ -50,7 +50,114 @@
           <button class="btn btn--add">+ Adicionar evento</button>
         </nav>
       </header>
-      <section class="mainapp__container"></section>
+      <section class="mainapp">
+        <div class="mainapp__tools">
+          <div class="date__container">
+            <div class="date__selector__container">
+              <div class="date__selector date__selector--full">
+                <ion-icon class="icon" name="caret-back-outline"></ion-icon>
+                <span id="month">Junho</span>
+                <span>|</span>
+                <span id="year">2022</span>
+                <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="date__selector__container hidden">
+              <div class="date__selector date__selector--basic">
+                <ion-icon class="icon" name="caret-back-outline"></ion-icon>
+                <span id="year">2022</span>
+                <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="switcher__container">
+            <button class="btn btn--switch active">Meses</button>
+            <button class="btn btn--switch">Eventos</button>
+          </div>
+        </div>
+        <div class="view__container">
+          <div class="view--calendar">
+            <div class="calendar">
+              <div class="weekdays__wrapper">
+                <div class="weekday">Dom</div>
+                <div class="weekday">Seg</div>
+                <div class="weekday">Ter</div>
+                <div class="weekday">Qua</div>
+                <div class="weekday">Qui</div>
+                <div class="weekday">Sex</div>
+                <div class="weekday">Sáb</div>
+              </div>
+              <div class="days__wrapper">
+                <div class="prev__date">27</div>
+                <div class="prev__date">28</div>
+                <div class="prev__date">29</div>
+                <div class="prev__date">30</div>
+                <div class="prev__date">31</div>
+                <div class="current__date">1</div>
+                <div class="current__date">2</div>
+                <div class="current__date">3</div>
+                <div class="current__date">4</div>
+                <div class="current__date">5</div>
+                <div class="current__date">6</div>
+                <div class="current__date">7</div>
+                <div class="current__date">8</div>
+                <div class="current__date">9</div>
+                <div class="current__date">10</div>
+                <div class="current__date">11</div>
+                <div class="current__date">12</div>
+                <div class="current__date">13</div>
+                <div class="current__date">14</div>
+                <div class="current__date">15</div>
+                <div class="current__date">16</div>
+                <div class="current__date">17</div>
+                <div class="current__date">18</div>
+                <div class="current__date">19</div>
+                <div class="current__date">20</div>
+                <div class="current__date">21</div>
+                <div class="current__date">22</div>
+                <div class="current__date active">23</div>
+                <div class="current__date">24</div>
+                <div class="current__date">25</div>
+                <div class="current__date">26</div>
+                <div class="current__date">27</div>
+                <div class="current__date">28</div>
+                <div class="current__date">29</div>
+                <div class="current__date">30</div>
+                <div class="next__date">1</div>
+                <div class="next__date">2</div>
+                <div class="next__date">3</div>
+                <div class="next__date">4</div>
+                <div class="next__date">5</div>
+                <div class="next__date">6</div>
+              </div>
+            </div>
+          </div>
+          <div class="view--list hidden"></div>
+          <div class="event__info__container">
+            <h3 class="heading heading--event__info">Nome do evento</h3>
+            <p class="info__title">
+              Início:
+              <span class="info" id="time--start">12:00</span>
+            </p>
+            <p class="info__title">
+              Término:
+              <span class="info" id="time--end">18:00</span>
+            </p>
+            <p class="info__title">
+              Detalhes:<br />
+              <span class="info" id="details"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna
+                aliqua.</span
+              >
+            </p>
+            <div class="btn__container--horizontal">
+              <button class="btn btn--delete">Excluir</button>
+              <button class="btn btn--edit">Editar</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script
       type="module"
