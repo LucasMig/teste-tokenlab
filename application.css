@@ -34,4 +34,125 @@ SYSTEMS
   --red: #ff4b4b;
   --text-primary: #333;
   --text-placeholder: #9c9c9c;
+
+  --menu-border: #4bdefb;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+/* ------------- */
+.nav {
+  width: 100%;
+  background-color: var(--base);
+}
+
+.sidebar {
+  grid-row: 1 / -1;
+  height: 100vh;
+  background-color: var(--base);
+  width: 24rem;
+  position: relative;
+}
+
+.heading__container {
+  height: 6.4rem;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 160, 253, 0.8) 41.38%,
+    rgba(75, 223, 251, 0.8) 100%
+  );
+  border-bottom: 1px solid var(--menu-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading--welcome {
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.sidebar__item__list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar__item__wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(105, 160, 253, 0.8) 41.38%,
+    rgba(75, 223, 251, 0.8) 100%
+  );
+}
+
+.sidebar__item {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 1.2rem;
+  background-color: var(--base);
+  border-bottom: 1px solid var(--menu-border);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.sidebar__item.active {
+  margin-left: 1.2rem;
+}
+
+.link--leave,
+.link--leave:link,
+.link--leave:visited {
+  color: #fff;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  transition: all 0.3s;
+}
+
+.link--leave:active,
+.link--leave:hover {
+  color: var(--menu-border);
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.main--application {
+  height: 100%;
+  width: 100%;
+}
+
+.header--application {
+  grid-column: 2;
+  height: 6.4rem;
+  display: flex;
+}
+
+.nav--toolbar {
+  padding: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn--add {
+  margin-left: auto;
+  background-color: var(--green);
+  height: 4.4rem;
 }
