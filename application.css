@@ -1,0 +1,37 @@
+/* 
+SYSTEMS
+    SPACING
+    0.4 / 0.8 / 1.2 / 1.6 / 1.8 / 2 / 2.4 / 2.8 / 3.2 / 3.6 / 4 / 4.4 / 4.8
+
+    SIZING
+    0.8 / 1.2 / 1.4 / 1.6 / 1.8 / 2 / 2.4 / 3.2 / 4.4
+
+    FAMILY
+    'Quicksand', sans-serif;
+
+    WEIGHT
+    Ligth: 300
+    Regular: 400
+    Medium: 500
+    SemiBold: 600
+    Bold: 700
+
+    COLORS ON ROOT
+    
+    SHADOWS
+    0 0.8rem 0.8rem 1.2rem rgba(0, 0, 0, 0.3);
+
+*/
+
+/* GENERAL STYLES */
+:root {
+  --bg: #d9d9d9;
+  --base: #4d5d73;
+  --main: #008aff;
+  --mainHov: #0071e4;
+  --green: #3fce78;
+  --yelloworange: #ffb74b;
+  --red: #ff4b4b;
+  --text-primary: #333;
+  --text-placeholder: #9c9c9c;
+}
