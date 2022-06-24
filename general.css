@@ -34,7 +34,7 @@ SYSTEMS
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* GENERAL STYLES */
@@ -51,18 +51,29 @@ html {
 }
 
 body {
-  /* font-family: "Quicksand", sans-serif; */
   line-height: 1;
   font-weight: 400;
   color: var(--text-primary);
+  width: 100vw;
+  height: 100vh;
+}
+
+.background__container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background__container img {
+  transform: scale(1.2);
+  opacity: 75%;
+  object-fit: cover;
 }
 
 .main--loginRegister {
-  background-image: url("./img/mainbg.png");
-  opacity: 75%;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 
   display: flex;
   align-items: center;
