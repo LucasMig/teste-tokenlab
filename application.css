@@ -30,8 +30,11 @@ SYSTEMS
   --main: #008aff;
   --mainHov: #0071e4;
   --green: #3fce78;
+  --greenHov: #38bf6e;
   --yelloworange: #ffb74b;
+  --yelloworangeHov: #e2a03d;
   --red: #ff4b4b;
+  --redHov: #ce3939;
   --text-primary: #333;
   --text-placeholder: #9c9c9c;
 
@@ -153,18 +156,39 @@ body {
   align-items: center;
 }
 
-.btn--add {
+.btn--add,
+.btn--add:link,
+.btn--add:visited {
   margin-left: auto;
   background-color: var(--green);
   height: 4.4rem;
 }
 
-.btn--delete {
+.btn--add:hover,
+.btn--add:active {
+  background-color: var(--greenHov);
+}
+
+.btn--delete,
+.btn--delete:link,
+.btn--delete:visited {
   background-color: var(--red);
 }
 
-.btn--edit {
+.btn--delete:hover,
+.btn--delete:active {
+  background-color: var(--redHov);
+}
+
+.btn--edit,
+.btn--edit:link,
+.btn--edit:visited {
   background-color: var(--yelloworange);
+}
+
+.btn--edit:hover,
+.btn--edit:active {
+  background-color: var(--yelloworangeHov);
 }
 
 .mainapp {
@@ -204,7 +228,11 @@ body {
   margin: 0 auto;
 }
 
-.btn--switch {
+.btn--switch,
+.btn--switch:link,
+.btn--switch:visited,
+.btn--switch:hover,
+.btn--switch:active {
   background: transparent;
 }
 
