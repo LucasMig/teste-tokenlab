@@ -1,0 +1,106 @@
+/* 
+SYSTEMS
+    SPACING
+    0.4 / 0.8 / 1.2 / 1.6 / 1.8 / 2 / 2.4 / 2.8 / 3.2 / 3.6 / 4 / 4.4 / 4.8
+
+    SIZING
+    0.8 / 1.2 / 1.4 / 1.6 / 1.8 / 2 / 2.4 / 3.2 / 4.4
+
+    FAMILY
+    'Quicksand', sans-serif;
+
+    WEIGHT
+    Ligth: 300
+    Regular: 400
+    Medium: 500
+    SemiBold: 600
+    Bold: 700
+
+    COLORS ON ROOT
+    
+    SHADOWS
+    0 0.8rem 0.8rem 1.2rem rgba(0, 0, 0, 0.3);
+
+*/
+
+/* GENERAL STYLES */
+:root {
+  --bg: #f3f3f3;
+  --base: #4d5d73;
+  --main: #008aff;
+  --mainHov: #0071e4;
+  --green: #3fce78;
+  --greenHov: #38bf6e;
+  --yelloworange: #ffb74b;
+  --yelloworangeHov: #e2a03d;
+  --red: #ff4b4b;
+  --redHov: #ce3939;
+  --text-primary: #333;
+  --text-placeholder: #9c9c9c;
+
+  --menu-border: #4bdefb;
+}
+
+.view--calendar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.weekdays__wrapper {
+  width: 100%;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.weekday {
+  width: 100%;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.days__wrapper {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+    flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* grid-template-rows: repeat(6, 1fr); */
+  /* padding: 0.2rem; */
+}
+
+.days__wrapper div {
+  border: solid 1px var(--bg);
+  height: 100%;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.days__wrapper div:hover:not(.current__date) {
+  cursor: pointer;
+}
+
+.prev__date,
+.next__date {
+  color: var(--text-placeholder);
+}
+
+.days__wrapper .current__date {
+  border: 1px solid var(--green);
+  background-color: #f3fff8;
+}
