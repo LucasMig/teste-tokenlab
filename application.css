@@ -213,12 +213,18 @@ body {
 .date__selector {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: space-between;
+  width: 24rem;
+  /* gap: 0.8rem; */
 }
 
 .date__selector span {
   font-size: 2.4rem;
   font-weight: 500;
+}
+
+.date__selector .icon:hover {
+  cursor: pointer;
 }
 
 .switcher__container {
@@ -285,7 +291,7 @@ body {
   flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  /* grid-template-rows: repeat(6, 1fr); */
   /* padding: 0.2rem; */
 }
 
@@ -297,13 +303,18 @@ body {
   justify-content: flex-end;
 }
 
-.prev__date {
+.days__wrapper div:hover:not(.current__date) {
+  cursor: pointer;
 }
 
-.current__date {
-}
-
+.prev__date,
 .next__date {
+  color: var(--text-placeholder);
+}
+
+.days__wrapper .current__date {
+  border: 1px solid var(--green);
+  background-color: #f3fff8;
 }
 
 .view--list {
