@@ -1,10 +1,15 @@
 "use strict";
 
-//CALENDAR
+//CALENDAR VARIABLES
+const calendarContainer = document.querySelector(".view--calendar");
+const listContainer = document.querySelector(".view--list");
 const monthEl = document.querySelector("#month");
-const yearEl = document.querySelector("#year");
+const yearEl = document.querySelectorAll("#year");
 const daysWrapperEl = document.querySelector(".days__wrapper");
-const monthSelector = document.querySelector(".date__selector");
+const [fullDateSelector, basicDateSelector] = Array.from(
+  document.querySelectorAll(".date__selector__container")
+);
+const viewSwitch = document.querySelector(".switcher__container");
 
 const curDate = new Date();
 
@@ -45,7 +50,7 @@ const renderCalendar = function () {
   ];
 
   monthEl.innerHTML = months[curDate.getMonth()];
-  yearEl.innerHTML = curDate.getFullYear();
+  yearEl.forEach((el) => (el.innerHTML = curDate.getFullYear()));
 
   let days = "";
 
@@ -70,7 +75,7 @@ const renderCalendar = function () {
   }
 };
 
-monthSelector.addEventListener("click", function (event) {
+fullDateSelector.addEventListener("click", function (event) {
   if (event.target.classList.contains("prev__month"))
     curDate.setMonth(curDate.getMonth() - 1);
 
@@ -88,5 +93,27 @@ daysWrapperEl.addEventListener("click", function (event) {
 });
 
 renderCalendar();
+
+basicDateSelector.addEventListener("click", function (event) {
+  if (event.target.classList.contains("prev__year"))
+    curDate.setFullYear(curDate.getFullYear() - 1);
+
+  if (event.target.classList.contains("next__year"))
+    curDate.setFullYear(curDate.getFullYear() + 1);
+
+  renderCalendar();
+});
+
+//SWITCH VIEWS
+viewSwitch.addEventListener("click", function () {
+  calendarContainer.classList.toggle("hidden");
+  listContainer.classList.toggle("hidden");
+  Array.from(viewSwitch.querySelectorAll("button")).forEach((el) =>
+    el.classList.toggle("active")
+  );
+  console.log(fullDateSelector, basicDateSelector);
+  fullDateSelector.classList.toggle("hidden");
+  basicDateSelector.classList.toggle("hidden");
+});
 
 //OO PARADIGM VERSION

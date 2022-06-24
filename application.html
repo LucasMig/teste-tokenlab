@@ -30,16 +30,16 @@
       </div>
       <nav class="sidebar__menu">
         <ul class="sidebar__item__list">
-          <div class="sidebar__item__wrapper">
-            <li>
+          <li class="sidebar__item__wrapper">
+            <div>
               <a class="sidebar__item active" href="#">Meus eventos</a>
-            </li>
-          </div>
-          <div class="sidebar__item--wrapper">
-            <li>
+            </div>
+          </li>
+          <li class="sidebar__item--wrapper">
+            <div>
               <a class="sidebar__item" href="#">Meu cadastro</a>
-            </li>
-          </div>
+            </div>
+          </li>
         </ul>
       </nav>
       <a href="#" class="link link--leave"
@@ -55,7 +55,7 @@
       <section class="mainapp">
         <div class="mainapp__tools">
           <div class="date__container">
-            <div class="date__selector__container">
+            <div class="date__selector__container hidden">
               <div class="date__selector date__selector--full">
                 <ion-icon
                   class="icon prev__month"
@@ -70,11 +70,17 @@
                 ></ion-icon>
               </div>
             </div>
-            <div class="date__selector__container hidden">
+            <div class="date__selector__container">
               <div class="date__selector date__selector--basic">
-                <ion-icon class="icon" name="caret-back-outline"></ion-icon>
+                <ion-icon
+                  class="icon prev__year"
+                  name="caret-back-outline"
+                ></ion-icon>
                 <span id="year">2022</span>
-                <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+                <ion-icon
+                  class="icon next__year"
+                  name="caret-forward-outline"
+                ></ion-icon>
               </div>
             </div>
           </div>
@@ -84,7 +90,7 @@
           </div>
         </div>
         <div class="view__container">
-          <div class="view--calendar">
+          <div class="view--calendar hidden">
             <div class="calendar">
               <div class="weekdays__wrapper">
                 <div class="weekday">Dom</div>
@@ -98,7 +104,21 @@
               <div class="days__wrapper"></div>
             </div>
           </div>
-          <div class="view--list hidden"></div>
+          <div class="view--list">
+            <ul class="event__list">
+              <li class="event__wrapper">
+                <div class="event">
+                  <p class="event__date event__date--month">Julho</p>
+                  <p class="event__date event__date--day">Dia 10</p>
+                  <p class="event__name">Nome do evento</p>
+                  <div class="event__time">
+                    <span class="event--start">12:00</span>-
+                    <span class="event--end">18:00</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
           <div class="event__info__container">
             <h3 class="heading heading--event__info">Nome do evento</h3>
             <p class="info__title">

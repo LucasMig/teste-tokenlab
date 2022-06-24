@@ -40,3 +40,55 @@ SYSTEMS
 
   --menu-border: #4bdefb;
 }
+
+.view--list {
+  padding: 2.4rem;
+  overflow: scroll;
+}
+
+.event__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.event {
+  padding: 1.2rem;
+  background-color: #fff;
+  border: solid 1px #c5c5c5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.event__date {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+}
+
+.event__date--month {
+  background-color: var(--base);
+  color: #fff;
+}
+
+.event__date--day {
+  background-color: #ffd2d2;
+  width: 7.2rem;
+}
+
+.event__name {
+  font-size: 1.6rem;
+}
+
+.event__time {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-left: auto;
+}
