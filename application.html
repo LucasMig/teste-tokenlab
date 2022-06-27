@@ -105,27 +105,78 @@
             </div>
           </div>
           <div class="view--list hidden">
-            <ul class="event__list">
-              <li class="event__wrapper">
-                <div class="event">
-                  <p class="event__date event__date--month">Julho</p>
-                  <p class="event__date event__date--day">Dia 10</p>
-                  <p class="event__name">Nome do evento</p>
-                  <div class="event__time">
-                    <span class="event--start">12:00</span>-
-                    <span class="event--end">18:00</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <ul class="event__list"></ul>
           </div>
           <div class="event__info__container">
-            <div class="btn__container--horizontal">
-              <button class="btn btn--delete">Excluir</button>
-              <button class="btn btn--edit">Editar</button>
+            <div class="event__info">
+              <h3 class="heading heading--event__info">
+                Nenhum evento pra essa data!
+              </h3>
+              <p class="info__title">
+                Detalhes:<br />
+                <span class="info"
+                  >Você está com o dia livre. Pra adicionar um evento para essa
+                  data, é só clicar no botão verde ali em cima! :)</span
+                >
+              </p>
             </div>
           </div>
         </div>
+      </section>
+      <section class="event__form__container">
+        <form class="form__container container" id="form--register">
+          <h2 class="heading heading--secondary">Informações do evento</h2>
+          <section class="input__container">
+            <div class="input">
+              <label for="event--name" class="input__title">Título:</label>
+              <input
+                id="event--name"
+                class="input__field"
+                type="text"
+                placeholder="título do evento"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="event--start--time" class="input__title"
+                >Hora de início</label
+              >
+              <input
+                id="event--start--time"
+                class="input__field"
+                type="time"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="event--end--time" class="input__title"
+                >Hora de término:</label
+              >
+              <input
+                id="event--end--time"
+                class="input__field"
+                type="time"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="event--details" class="input__title"
+                >Detalhes (opcional):</label
+              >
+              <input
+                id="event--details"
+                class="input__field"
+                type="text"
+                placeholder="digite mais informações..."
+                required
+              />
+            </div>
+          </section>
+          <div class="btn__container--horizontal">
+            <button class="btn btn--cancel" type="button">Cancelar</button>
+            <button class="btn btn--submit" type="submit">Salvar</button>
+          </div>
+        </form>
       </section>
     </main>
     <script

@@ -83,12 +83,15 @@ SYSTEMS
   /* padding: 0.2rem; */
 }
 
-.days__wrapper div {
+.days__wrapper .date__container {
   border: solid 1px var(--bg);
   height: 100%;
   font-size: 1.6rem;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  padding: 0.2rem;
+  position: relative;
 }
 
 .days__wrapper div:hover:not(.current__date) {
@@ -98,9 +101,36 @@ SYSTEMS
 .prev__date,
 .next__date {
   color: var(--text-placeholder);
+  pointer-events: none;
 }
 
 .days__wrapper .current__date {
   border: 1px solid var(--green);
   background-color: #f3fff8;
+}
+
+.days__wrapper .event--tag__container {
+  border: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.days__wrapper .date {
+  border: none;
+  align-self: flex-end;
+  margin-bottom: auto;
+}
+
+.event--tag {
+  align-self: center;
+  width: 4.8rem;
+  padding: 0.4rem;
+  background-color: #8bfbbc;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

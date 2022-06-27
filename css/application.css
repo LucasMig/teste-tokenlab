@@ -135,6 +135,7 @@ body {
 }
 
 .main--application {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -284,4 +285,40 @@ body {
 
 .info {
   font-weight: 300;
+}
+
+.event__form__container {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+
+  opacity: 0;
+  transition: all 0.4s;
+  pointer-events: none;
+}
+
+.event__form__container.open {
+  opacity: 100%;
+  pointer-events: all;
+}
+
+.btn--cancel,
+.btn--cancel:link,
+.btn--cancel:visited {
+  background-color: #fff;
+  color: var(--text-placeholder);
+  box-shadow: inset 0 0 0 2px var(--main);
+}
+
+.btn--cancel:hover,
+.btn--cancel:active {
+  background-color: var(--bg);
+  box-shadow: inset 0 0 0 2px var(--mainHov);
+}
+
+.form__container .btn__container--horizontal {
+  justify-content: space-between;
 }

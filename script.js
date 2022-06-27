@@ -1,6 +1,7 @@
 "use strict";
 
 //GLOBAL VARIABLES
+const accounts = [];
 const months = [
   "Janeiro",
   "Fevereiro",
@@ -15,6 +16,8 @@ const months = [
   "Novembro",
   "Dezembro",
 ];
+const btnAddEvent = document.querySelector(".btn--add");
+const btnCloseModal = document.querySelector(".btn--cancel");
 const viewSwitch = document.querySelector(".switcher__container");
 const [fullDateSelector, basicDateSelector] = Array.from(
   document.querySelectorAll(".date__selector__container")
@@ -22,46 +25,145 @@ const [fullDateSelector, basicDateSelector] = Array.from(
 
 //OO PARADIGM VERSION
 
-class User {
-  constructor(name, doc, email, password) {
-    this.name = name;
-    (this.doc = doc), (this.email = email);
-    this.password = password;
+class LoginRegister {
+  constructor() {}
+
+  _switchForm() {}
+
+  _createAccount() {
+    //push new user to accounts array
+    //redirect to login form
   }
 
-  _getLocalStorage() {}
+  _logIn() {
+    //find user in accounts array
+    //check if password matches
+    //go to app
+  }
 
-  _setLocalStorage() {}
-
-  _newEvent() {}
+  _goToApp() {
+    //build app with user's info
+  }
 }
 
 class UserEvent {
-  constructor(name, ISOdate, startTime, endTime, description) {
+  id = (Date.now() + "").slice(-10);
+  constructor(
+    name,
+    ISOdate,
+    startTime,
+    endTime,
+    description = "Nenhuma informação adicional para este evento"
+  ) {
     this.name = name;
     this.ISOdate = ISOdate;
     this.startTime = startTime;
     this.endTime = endTime;
     this.description = description;
   }
+}
+
+// const testEvent = [
+//   new UserEvent(
+//     "Eventão massa",
+//     new Date().toISOString(),
+//     "13:00",
+//     "17:00",
+//     "Jiraya ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+//   ),
+//   new UserEvent(
+//     "Pepino",
+//     new Date(2022, 5, 3).toISOString(),
+//     "15:00",
+//     "16:00",
+//     "Naruto ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+//   ),
+//   new UserEvent(
+//     "Testinho",
+//     new Date(2022, 5, 22).toISOString(),
+//     "09:00",
+//     "11:00",
+//     "Sasuke ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+//   ),
+// ];
+
+class User {
+  #events = [];
+  constructor(name, doc, email, password) {
+    //Assigning variables
+    this.name = name;
+    this.doc = doc;
+    this.email = email;
+    this.password = password;
+
+    //TEST SECTION
+    this.#events = [
+      new UserEvent(
+        "Eventão massa",
+        new Date().toISOString(),
+        "13:00",
+        "17:00",
+        "Jiraya ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+      ),
+      new UserEvent(
+        "Pepino",
+        new Date(2022, 5, 3).toISOString(),
+        "15:00",
+        "16:00",
+        "Naruto ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+      ),
+      new UserEvent(
+        "Testinho",
+        new Date(2022, 5, 22).toISOString(),
+        "09:00",
+        "11:00",
+        "Sasuke ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
+      ),
+    ];
+
+    //Adding event listeners
+  }
+
+  _getLocalStorage() {}
+
+  _setLocalStorage() {}
+
+  _newEvent() {
+    this.#events.push(new UserEvent());
+  }
 
   _editEvent() {}
 
   _deleteEvent() {}
+
+  get events() {
+    return this.#events;
+  }
 }
+
+const lucas = new User(
+  "Lucas Migliori",
+  "48964901851",
+  "lucasmigliori@gmail.com",
+  "lucasmig"
+);
 
 class Calendar {
   #monthEl;
   #yearEl;
   #daysWrapperEl;
   #curDate;
+  #eventDays;
   constructor() {
     //Assigning variables
     this.#monthEl = document.querySelector("#month");
     this.#yearEl = document.querySelectorAll("#year");
     this.#daysWrapperEl = document.querySelector(".days__wrapper");
     this.#curDate = new Date();
-    this._renderCalendar();
+    this.#eventDays = lucas.events.map((event) => event.ISOdate.slice(0, 10));
+    this.renderCalendar();
+    this.renderEvents();
+    this.renderList();
 
     //Adding event listeners
     fullDateSelector.addEventListener("click", this._switchFullDate.bind(this));
@@ -72,7 +174,7 @@ class Calendar {
     );
   }
 
-  _renderCalendar() {
+  renderCalendar() {
     this.#curDate.setDate(1);
     const firstDayIndex = this.#curDate.getDay();
 
@@ -102,7 +204,9 @@ class Calendar {
     let days = "";
 
     for (let x = firstDayIndex; x > 0; x--) {
-      days += `<div class="prev__date">${previousLastDay - x + 1}</div>`;
+      days += `<div class="date__container prev__date"><div class="date">${
+        previousLastDay - x + 1
+      }</div></div>`;
     }
 
     for (let i = 1; i <= curLastDay; i++) {
@@ -110,16 +214,88 @@ class Calendar {
         i === new Date().getDate() &&
         this.#curDate.getMonth() === new Date().getMonth()
       ) {
-        days += `<div class="current__date">${i}</div>`;
+        days += `<div class="date__container current__date"><div class="date">${i}</div><div class="event--tag__container"></div></div>`;
       } else {
-        days += `<div>${i}</div>`;
+        days += `<div class="date__container"><div class="date">${i}</div><div class="event--tag__container"></div></div>`;
       }
     }
 
     for (let j = 1; j <= nextDays; j++) {
-      days += `<div class="next__date">${j}</div>`;
+      days += `<div class="date__container next__date"><div class="date">${j}</div><div class="event--tag__container"></div></div>`;
       this.#daysWrapperEl.innerHTML = days;
     }
+  }
+
+  renderEvents() {
+    const dayDivs = Array.from(this.#daysWrapperEl.querySelectorAll(".date"));
+    const monthDays = dayDivs.map((el) => {
+      if (el.classList.contains("prev__date"))
+        return new Date(
+          +this.#yearEl[0].innerHTML,
+          months.indexOf(this.#monthEl.innerHTML) - 1,
+          el.innerHTML
+        )
+          .toISOString()
+          .slice(0, 10);
+      if (el.classList.contains("next__date"))
+        return new Date(
+          +this.#yearEl[0].innerHTML,
+          months.indexOf(this.#monthEl.innerHTML) + 1,
+          el.innerHTML
+        )
+          .toISOString()
+          .slice(0, 10);
+
+      return new Date(
+        +this.#yearEl[0].innerHTML,
+        months.indexOf(this.#monthEl.innerHTML),
+        el.innerHTML
+      )
+        .toISOString()
+        .slice(0, 10);
+    });
+
+    monthDays.forEach((day, i) => {
+      if (this.#eventDays.includes(day)) {
+        const eventEl = lucas.events.find((el) => {
+          return el.ISOdate.slice(0, 10) === day;
+        });
+
+        const eventHTML = `
+          <p class="event--tag">${eventEl.name}</p>
+        `;
+        dayDivs[i].parentElement
+          .querySelector(".event--tag__container")
+          .insertAdjacentHTML("beforeend", eventHTML);
+      }
+    });
+  }
+
+  renderList() {
+    const eventListContainer = document.querySelector(".event__list");
+    const sortedEvents = lucas.events.sort((aEl, bEl) => {
+      return new Date(bEl.ISOdate) - new Date(aEl.ISOdate);
+    });
+
+    sortedEvents.forEach((el) => {
+      const eventDate = new Date(el.ISOdate);
+      const html = `
+      <li class="event__wrapper">
+        <div class="event">
+          <p class="event__date event__date--month">${
+            months[eventDate.getMonth()]
+          }</p>
+          <p class="event__date event__date--day">Dia ${eventDate.getDate()}</p>
+          <p class="event__name">${el.name}</p>
+          <div class="event__time">
+            <span class="event--start">${el.startTime}</span>-
+            <span class="event--end">${el.endTime}</span>
+          </div>
+        </div>
+      </li>
+      `;
+      eventListContainer.insertAdjacentHTML("afterbegin", html);
+    });
   }
 
   _switchFullDate(event) {
@@ -129,14 +305,31 @@ class Calendar {
     if (event.target.classList.contains("next__month"))
       this.#curDate.setMonth(this.#curDate.getMonth() + 1);
 
-    this._renderCalendar();
+    this.renderCalendar();
+    this.renderEvents();
   }
 
   _pickDate(event) {
-    Array.from(this.#daysWrapperEl.querySelectorAll("div")).forEach((el) =>
-      el.classList.remove("current__date")
+    const clickedDate = event?.target
+      ?.closest(".date__container")
+      ?.querySelector(".date")?.innerHTML
+      ? new Date(
+          +this.#yearEl[0].innerHTML,
+          months.indexOf(this.#monthEl.innerHTML),
+          event.target
+            .closest(".date__container")
+            .querySelector(".date").innerHTML
+        )
+          .toISOString()
+          .slice(0, 10)
+      : null;
+
+    Array.from(this.#daysWrapperEl.querySelectorAll(".date")).forEach((el) =>
+      el.closest(".date__container").classList.remove("current__date")
     );
-    event.target.classList.add("current__date");
+    event?.target?.closest(".date__container")?.classList.add("current__date");
+
+    this._viewEvent(clickedDate);
   }
 
   _switchBasicDate(event) {
@@ -146,26 +339,89 @@ class Calendar {
     if (event.target.classList.contains("next__year"))
       this.#curDate.setFullYear(this.#curDate.getFullYear() + 1);
 
-    this._renderCalendar();
+    this.renderCalendar();
+    this.renderEvents();
+    this.renderList();
+  }
+
+  _viewEvent(datePicked) {
+    if (!datePicked) return;
+
+    const eventInfoContainer = document.querySelector(
+      ".event__info__container"
+    );
+
+    const prevPickedEvent = eventInfoContainer.querySelector(".event__info");
+
+    if (prevPickedEvent) eventInfoContainer.removeChild(prevPickedEvent);
+
+    if (this.#eventDays.some((el) => el === datePicked)) {
+      const eventPicked = lucas.events.find(
+        (eventEl) => eventEl.ISOdate.slice(0, 10) === datePicked
+      );
+
+      const html = `
+        <div class="event__info">
+          <h3 class="heading heading--event__info">
+            ${eventPicked.name}
+          </h3>
+          <p class="info__title">
+            Início:
+            <span class="info">${eventPicked.startTime}</span>
+          </p>
+          <p class="info__title">
+            Término:
+            <span class="info">${eventPicked.endTime}</span>
+          </p>
+          <p class="info__title">
+            Detalhes:<br />
+            <span class="info">${eventPicked.description}</span>
+          </p>
+          <div class="btn__container--horizontal">
+            <button class="btn btn--delete">Excluir</button>
+            <button class="btn btn--edit">Editar</button>
+          </div>
+        </div>
+      `;
+
+      eventInfoContainer.insertAdjacentHTML("afterbegin", html);
+    } else {
+      const html = `
+        <div class="event__info">
+          <h3 class="heading heading--event__info">
+            Nenhum evento pra essa data!
+          </h3>
+          <p class="info__title">
+            Detalhes:<br />
+            <span class="info">Você está com o dia livre. Pra adicionar um evento para essa data, é só clicar no botão verde ali em cima! :)</span>
+          </p>
+        </div>
+      `;
+
+      eventInfoContainer.insertAdjacentHTML("afterbegin", html);
+    }
   }
 }
 
 class App {
-  #accounts;
+  #account;
   #calendar;
-  #events;
+  #eventFormContainer;
   constructor() {
+    //Assigning variables
+    this.#eventFormContainer = document.querySelector(
+      ".event__form__container"
+    );
     this.#calendar = new Calendar();
+
     //Get local storage
     // this._getLocalStorage();
+
     //Add event listeners for methods
-
     viewSwitch.addEventListener("click", this._switchView.bind(this));
+    btnAddEvent.addEventListener("click", this._showForm.bind(this));
+    btnCloseModal.addEventListener("click", this._hideForm.bind(this));
   }
-
-  _renderCalendar() {}
-
-  _renderList() {}
 
   _switchView() {
     const listContainer = document.querySelector(".view--list");
@@ -180,48 +436,13 @@ class App {
     basicDateSelector.classList.toggle("hidden");
   }
 
-  _showForm() {}
+  _showForm() {
+    this.#eventFormContainer.classList.add("open");
+  }
 
-  _hideForm() {}
-
-  _viewEvent() {}
-
-  _renderEventList() {}
+  _hideForm() {
+    this.#eventFormContainer.classList.remove("open");
+  }
 }
-
-const testEvent = new UserEvent(
-  "Eventão massa",
-  new Date().toISOString(),
-  "13:00",
-  "17:00",
-  "Jiraya ipsum dolor, sit amet consectetur adipisicing elit. Nostrum blanditiis quae odio itaque nihil esse nobis temporibus fugiat dignissimos corrupti, ipsam aliquam possimus reprehenderit illo, dolorem magni, natus dolor! Sed?"
-);
-
-const viewEvent = function (Event) {
-  const eventInfoContainer = document.querySelector(".event__info__container");
-  const html = `
-    <div class="event__info">
-      <h3 class="heading heading--event__info">
-        ${Event.name}
-      </h3>
-      <p class="info__title">
-        Início:
-        <span class="info">${Event.startTime}</span>
-      </p>
-      <p class="info__title">
-        Término:
-        <span class="info">${Event.endTime}</span>
-      </p>
-      <p class="info__title">
-        Detalhes:<br />
-        <span class="info">${Event.description}</span>
-      </p>
-    </div>
-  `;
-
-  eventInfoContainer.insertAdjacentHTML("afterbegin", html);
-};
-
-viewEvent(testEvent);
 
 const app = new App();
