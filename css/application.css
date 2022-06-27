@@ -257,7 +257,14 @@ body {
   align-self: center;
   display: flex;
   flex-direction: column;
+}
+
+.event__info {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
   gap: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 .event__info__container .btn__container--horizontal {
@@ -267,6 +274,7 @@ body {
 .heading--event__info {
   font-size: 1.8rem;
   text-align: left;
+  margin-bottom: 0;
 }
 
 .info__title {
