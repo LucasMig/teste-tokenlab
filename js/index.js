@@ -43,10 +43,10 @@ const btnLogout = document.querySelector(".link--leave");
 const btnCloseModal = document
   .querySelector("#form--event")
   .querySelector(".btn--cancel");
-const btnSaveEvent = document.querySelector("#teste--lucas");
-// const btnSaveEvent = document
-//   .querySelector("#form--event")
-//   .querySelector(".btn--submit");
+// const btnSaveEvent = document.querySelector("#teste--lucas");
+const btnSaveEvent = document
+  .querySelector("#form--event")
+  .querySelector(".btn--submit");
 const btnEditEvent = document.querySelector(".btn--edit");
 const btnDeleteEvent = document.querySelector(".btn--delete");
 
