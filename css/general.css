@@ -91,6 +91,10 @@ body {
   display: none;
 }
 
+.invisible {
+  opacity: 0;
+}
+
 /* REUSABLE CLASSES */
 .heading {
   font-weight: 600;

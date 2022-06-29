@@ -53,6 +53,21 @@ SYSTEMS
   gap: 2.4rem;
 }
 
+.event:hover {
+  cursor: pointer;
+}
+
+.event p,
+.event div,
+.event span {
+  cursor: pointer;
+}
+
+.event.current__date {
+  border: 1px solid var(--green);
+  background-color: #f3fff8;
+}
+
 .event {
   padding: 1.2rem;
   background-color: #fff;
