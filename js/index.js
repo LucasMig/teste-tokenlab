@@ -121,7 +121,7 @@ class Calendar {
     for (let x = firstDayIndex; x > 0; x--) {
       days += `<div class="date__container prev__date"><div class="date">${
         previousLastDay - x + 1
-      }</div></div>`;
+      }</div><div class="event--tag__container"></div></div>`;
     }
 
     for (let i = 1; i <= curLastDay; i++) {

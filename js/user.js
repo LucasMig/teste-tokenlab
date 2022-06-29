@@ -126,6 +126,8 @@ export class User {
     calendar.renderList();
     calendar.viewEvent(this.#pickedDate);
     this.#eventForm.parentNode.classList.remove("open");
+
+    console.log("Adicionei:", this.#events);
   }
 
   _editEvent(calendar) {
