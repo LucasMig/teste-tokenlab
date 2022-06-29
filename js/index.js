@@ -438,6 +438,7 @@ class App {
       );
       this.#accounts.push(account);
       // this._setLocalStorage;
+      console.log(this.#accounts);
 
       alert("Cadastro criado com sucesso!");
 

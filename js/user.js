@@ -78,7 +78,6 @@ export class User {
 
   _newEvent(calendar) {
     this.#currentEvent = calendar.currentEvent;
-    console.log("clicado");
 
     const eventId = (Date.now() + "").slice(-10);
     this.#eventISOdate = new Date(
@@ -111,6 +110,9 @@ export class User {
       );
 
       this.#currentEvent = this.#events.find((el) => el.id === eventId);
+      // this.#currentEvent = calendar.currentEvent
+      //   ? calendar.currentEvent
+      //   : this.#currentEvent;
     }
 
     if (this.#currentEvent) {
@@ -121,6 +123,8 @@ export class User {
 
       this.#currentEvent = this.#events.find((el) => el.id === eventId);
     }
+
+    // this.#currentEvent = this.#events.find((el) => el.id === eventId);
 
     calendar.renderEvents();
     calendar.renderList();
@@ -177,14 +181,15 @@ export class User {
       this.#events.splice(eventIndex, 1);
     }
 
-    this.#currentEvent = calendar.currentEvent
-      ? calendar.currentEvent
-      : this.#currentEvent;
-
     calendar.renderEvents();
     calendar.renderList();
     calendar.viewEvent(this.#pickedDate);
     console.log("Deletei:", this.#events);
+
+    this.#currentEvent = calendar.currentEvent
+      ? calendar.currentEvent
+      : this.#currentEvent;
+    // this.#currentEvent = undefined;
   }
 
   get events() {
