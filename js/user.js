@@ -128,21 +128,10 @@ export class User {
     this.#eventForm.parentNode.classList.remove("open");
   }
 
-  _metodoTeste() {
-    console.log("teste");
-  }
-
   _editEvent(calendar) {
     this.#currentEvent = calendar.currentEvent
       ? calendar.currentEvent
       : this.#currentEvent;
-
-    this.#events.splice(
-      this.#events.indexOf(
-        this.#events.find((el) => el.id === this.#currentEvent.id)
-      ),
-      1
-    );
 
     this.#eventISOdate = new Date(
       +document.querySelector("#year").innerHTML,
